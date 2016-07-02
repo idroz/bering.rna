@@ -18,7 +18,7 @@ rna.pathwayttest<- function(expr, gs, genelist, ref, samp, set.size = c(10,500))
   gs <- gs[(sapply(gs, length) >= set.size[1]) & (sapply(gs, length) <= set.size[2])]
 
   gs.means <- lapply(gs, function(x) colMeans(expr[match(x, genelist),], na.rm = TRUE))
-  gs.ttest <- lapply(gs.means, function(x){ t <- t.test(x[case], x[controls])
+  gs.ttest <- lapply(gs.means, function(x){ t <- t.test(x[samp], x[ref])
                                   data.frame(t$p.value, t$statistic)
                                   })
   pathway.names <- names(gs.ttest)

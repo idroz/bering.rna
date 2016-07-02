@@ -1,7 +1,7 @@
 Package: bering.rna
-Title: What the Package Does (one line, title case)
+Title: Pipelines for microarray analysis
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
+Authors@R: person("Ignat", "Drozdov", email = "idrozdov@beringresearch.com", role = c("aut", "cre"))
 Description: What the package does (one paragraph).
 Depends:
     R (>= 3.2.2)
