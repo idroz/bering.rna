@@ -2,7 +2,10 @@ Package for simple gene expression analysis pipelines
 
 # Installation
 ```r
-install_git("https://github.com/idroz/bering.rna")
+if( !("devtools" %in% installed.packages()[,"Package"]))
+install.packages("devtools")
+
+devtools::install_git("https://github.com/idroz/bering.rna")
 ```
 
 # Gene Sets
