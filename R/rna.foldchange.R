@@ -18,6 +18,6 @@ rna.foldchange <- function(expr, ref, samp){
   # Fold changes < 1 become negative
   logFC <- log2(fc)
 
-  return(fc)
+  return(sign(logFC) * (2^logFC))
 
 }
