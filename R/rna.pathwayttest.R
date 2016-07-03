@@ -24,6 +24,16 @@ rna.pathwayttest<- function(expr, gs, genelist, ref, samp, set.size = c(10,500))
   pathway.names <- names(gs.ttest)
   gs.ttest <- do.call(rbind, gs.ttest)
 
-  res <- data.frame(collection = pathway.names, p.value = gs.ttest[,1], fdr = p.adjust(gs.ttest[,1], "BH"), t.value = gs.ttest[,2])
+  res <- data.frame(collection = pathway.names, p.value = gs.ttest[,1], fdr = p.adjust(gs.ttest[,1], "BH"), t.value = gs.ttest[,2], logFC = rna.foldchange(do.call(rbind, gs.means), ref = ref, samp = samp), members = get.members(gs, pathway.names))
+
+
+
   res <- res[order(res$p.value, decreasing = FALSE),]
+}
+
+get.members <- function(geneset, pathways){
+  ix <- match(pathways, names(geneset))
+
+  glist <- sapply(ix, function(x) toString(paste(geneset[[x]], collapse = "///")))
+  return(glist)
 }
