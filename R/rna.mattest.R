@@ -13,7 +13,7 @@
 
 rna.mattest <- function(expr, ref, samp, p.value = NULL){
 
-  ttest <- apply(expr, 1, function(x) t.test(x[case], x[controls])$p.value)
+  ttest <- apply(expr, 1, function(x) t.test(x[ref], x[samp])$p.value)
 
   if(is.null(p.value))
     return(ttest)
